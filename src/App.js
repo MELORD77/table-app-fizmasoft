@@ -1,7 +1,10 @@
 import axios from "axios";
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
-import './App.css'
+import "./App.css";
+import { Tooltip } from "react-tippy";
+import "react-tippy/dist/tippy.css";
+
 function App() {
   const [data, setData] = useState([]);
 
@@ -11,7 +14,7 @@ function App() {
     );
     if (data) {
       console.log(data.data);
-     
+
       setData(data.data);
     }
   }, []);
@@ -40,22 +43,43 @@ function App() {
             <tr>
               {data.data?.map((d, i) => (
                 <th key={`${d.id}/${i}`} scope="col">
-                  {d.title} - <span style={{color:"red"}}>{d.count? d.count :<span style={{color:"orange"}}>0</span>}</span>
+                  <Tooltip title={d.title} position="top">
+                    {d.title.length > 10
+                      ? `${d.title.slice(0, 10)}...`
+                      : d.title}
+                  </Tooltip>{" "}
+                  -{" "}
+                  <span style={{ color: "red" }}>
+                    {d.count ? (
+                      d.count
+                    ) : (
+                      <span style={{ color: "orange" }}>0</span>
+                    )}
+                  </span>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-          <tr>
-              {data.data?.map((d) => (
-                <th>
-                {d.users &&
-                  d.users.map((s) => (
-                    <p style={{ border: "1px solid white", margin: '5px' ,padding:"5px" }}>{s}</p>
-                  ))}
-                  </th>
+            <tr>
+              {data.data?.map((d, i) => (
+                <th key={i}>
+                  {d.users &&
+                    d.users.map((s) => (
+                      <Tooltip key={s} title={s} position="top">
+                        <p
+                          style={{
+                            border: "1px solid white",
+                            margin: "5px",
+                            padding: "5px",
+                          }}
+                        >
+                          {s.length > 12 ? `${s.slice(0, 12)}...` : s}
+                        </p>
+                      </Tooltip>
+                    ))}
+                </th>
               ))}
-             
             </tr>
           </tbody>
         </table>
