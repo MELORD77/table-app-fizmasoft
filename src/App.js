@@ -18,8 +18,17 @@ function App() {
     <>
       <div className="container-fliid ">
         <h1 className="text-center">Vaqt: {data.generated_date}</h1>
-
-        <table className="table">
+        <div style={{ display: "flex" }}>
+          {data.data?.map((d) => (
+            <div>
+              <h6>
+                {d.title} -{d.count}
+              </h6>
+              {d.users && d.users.map((s) => <p>{s}</p>)}
+            </div>
+          ))}
+        </div>
+        {/* <table className="table">
           <thead>
             <tr>
               {data.data?.map((d, i) => (
@@ -41,7 +50,7 @@ function App() {
               );
             })}
           </tbody>
-        </table>
+        </table> */}
       </div>
     </>
   );
