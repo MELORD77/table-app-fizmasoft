@@ -16,44 +16,30 @@ function App() {
 
   return (
     <>
-      <div className="container-lg search">
-        <h1>Vaqt: {data.generated_date}</h1>
+      <div className="container-fliid ">
+        <h1 className="text-center">Vaqt: {data.generated_date}</h1>
 
         <table className="table">
           <thead>
             <tr>
               {data.data?.map((d, i) => (
                 <th key={`${d.id}/${i}`} scope="col">
-                  {d.title} - {d.count}
+                  {d.title} -{d.count}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
-            </tr>
+            {data.data?.map((u) => {
+              return (
+                u.users &&
+                u.users.map((user, i) => (
+                  <tr key={`${user}/${i}`} scope="col">
+                    <td>{user}</td>
+                  </tr>
+                ))
+              );
+            })}
           </tbody>
         </table>
       </div>
