@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 
 function App() {
@@ -17,14 +18,19 @@ function App() {
   return (
     <>
       <div className="container-fliid ">
-        <h1 className="text-center">Vaqt: {data.generated_date}</h1>
+        <h1 className="text-center">
+          Vaqt: {moment(data.generated_date).format("DD.MM.YYYY HH:mm:ss")}
+        </h1>
         <div style={{ display: "flex" }}>
           {data.data?.map((d) => (
             <div>
-              <h6>
+              <h6 style={{ border: "1px solid black", margin: 0 }}>
                 {d.title} -{d.count}
               </h6>
-              {d.users && d.users.map((s) => <p>{s}</p>)}
+              {d.users &&
+                d.users.map((s) => (
+                  <p style={{ border: "1px solid black", margin: 0 }}>{s}</p>
+                ))}
             </div>
           ))}
         </div>
