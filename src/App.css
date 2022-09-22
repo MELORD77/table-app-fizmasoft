@@ -1,10 +1,9 @@
-body{
-margin-top: 10px;
-color: white;
-background-color: rgb(46, 43, 43);
-
+body {
+  margin-top: 10px;
+  color: white;
+  background-color: rgb(46, 43, 43);
 }
-th{
-color: beige;
-
+th {
+  color: beige;
+  border: 1px solid rgb(231, 226, 226);
 }
