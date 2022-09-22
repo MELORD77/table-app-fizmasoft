@@ -51,7 +51,7 @@ function App() {
                 <th>
                 {d.users &&
                   d.users.map((s) => (
-                    <p style={{ border: "1px solid white", margin: '2px'  }}>{s}</p>
+                    <p style={{ border: "1px solid white", margin: '5px' ,padding:"5px" }}>{s}</p>
                   ))}
                   </th>
               ))}
