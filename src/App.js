@@ -13,8 +13,6 @@ function App() {
       `https://api.lochinkoz.uz/dashboard/stat/stat_user_by_rules_with_count`
     );
     if (data) {
-      console.log(data.data);
-
       setData(data.data);
     }
   }, []);
@@ -30,7 +28,7 @@ function App() {
           <thead>
             <tr>
               {data.data?.map((d, i) => (
-                <th style={user} key={`${d.id}/${i}`} scope="col">
+                <th key={`${d.id}/${i}`} scope="col">
                   {d.title.length > 15 ? (
                     <Tooltip title={d.title} position="top">
                       {d.title}
@@ -56,8 +54,9 @@ function App() {
                 <th key={i}>
                   {d.users &&
                     d.users.map((s) => (
-                      <p key={s} style={user}>
-                        {s.length > 18 ? (
+                      <p className="paragrf" key={s} style={user}>
+                        {" "}
+                        {s.length > 21 ? (
                           <Tooltip title={s} position="top">
                             {s}
                           </Tooltip>
@@ -69,13 +68,6 @@ function App() {
                 </th>
               ))}
             </tr>
-            {/* <tr>
-              <th>
-                <Tooltip title="helo" position="top">
-                  <p style={{ width: "100px", overflow: "hidden" }}></p>
-                </Tooltip>
-              </th>
-            </tr> */}
           </tbody>
         </table>
       </div>
@@ -83,7 +75,7 @@ function App() {
   );
 }
 const user = {
-  width: "180px",
+  width: "200px",
   color: "white",
   border: "1px  solid white",
   marginTop: "5px",
@@ -100,3 +92,15 @@ export default App;
                       ? `${d.title.slice(0, 10)}...`
                       : d.title} */
 }
+// {data.data?.map((d, i) => (
+//   <th key={i}>
+//     {d.users &&
+//       d.users.map((s) => (
+//         <p key={s} style={user}>
+//           {s.length > 21 ? (
+//             <Tooltip title={s} position="top">
+//               {s}
+//             </Tooltip>
+//           ) : (
+//             s
+//           )}
