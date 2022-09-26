@@ -1,4 +1,4 @@
-body {
+/* body {
   margin-top: 10px;
   color: white;
   background-color: rgb(46, 43, 43);
@@ -7,3 +7,52 @@ th {
   color: beige;
   border: 1px solid rgb(231, 226, 226);
 }
+
+.flex-container {
+  display: flex;
+  background-color: rgb(29, 39, 47);
+  padding: 0;
+  height: 600px;
+}
+
+.column {
+  background-color: #160d0d;
+  width: 250px;
+  margin: 0pxx;
+  padding: 0px;
+  color: rgb(242, 234, 237);
+  font-weight: 600;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: 1px solid rgb(53, 20, 173);
+  white-space: nowrap;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  width: 200px;
+  list-style-type: none;
+  color: rgb(222, 222, 237);
+  margin: 0px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: 1px solid rgb(53, 20, 173);
+  white-space: nowrap;
+  font-size: 10px;
+}
+.count {
+  color: red;
+  height: 6px;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid white;
+}
+span {
+  border-bottom: 1px solid rgb(53, 20, 173);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  border: 1px solid black;
+  white-space: nowrap;
+} */
