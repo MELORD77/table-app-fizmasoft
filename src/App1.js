@@ -5,6 +5,7 @@ import "./App.css";
 import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
 
+import { Button, LabelGroup, Segment } from "semantic-ui-react";
 function App() {
   const [data, setData] = useState([]);
 
@@ -17,6 +18,29 @@ function App() {
     }
   }, []);
 
+  // let users = [];
+  // data.data.data.map((item) => {
+  //   users = [...users, ...(item.users || [])];
+  // });
+  // let uniqueChars = [...new Set(users)];
+
+  // console.log(uniqueChars.length);
+  // const users = [];
+  // const movis = [
+  //   { id: 1, name: "jek", fullname: "jek rouse" },
+  //   { id: 2, name: "tek", fullname: "tek rouse" },
+  //   { id: 3, name: "pek", fullname: "pek rouse" },
+  //   { id: 4, name: "kek", fullname: "kek rouse" },
+  //   { id: 5, name: "hek", fullname: "hek rouse" },
+  // ];
+
+  let fulmovi = data.data?.map((movi) => ({
+    title: movi.title,
+    users: movi.users,
+  }));
+
+  // console.log(data.data);
+  console.log(fulmovi);
   return (
     <>
       <div className="container-fluid m-0 p-0">
@@ -26,7 +50,6 @@ function App() {
             Date : {moment(data.generated_date).format("DD.MM.YYYY HH:mm:ss")}
           </h3>
         </div>
-
         <div
           className=" container-fluid d-inline-flex p-0 m-auto border "
           style={{ height: "900px" }}
@@ -54,11 +77,8 @@ function App() {
                   {" "}
                   {d.users &&
                     d.users.map((s) => (
-                      <div>
-                        <span
-                          className="list-group-item bg-dark border border-info text-white"
-                          key={s}
-                        >
+                      <div className="m-1 ">
+                        <Button inverted color="blue" key={s}>
                           {s.length > 18 ? (
                             <Tooltip title={s} position="top">
                               <p
@@ -70,9 +90,9 @@ function App() {
                               </p>
                             </Tooltip>
                           ) : (
-                            s
+                            <p style={{ width: "150px" }}>{s}</p>
                           )}
-                        </span>
+                        </Button>
                       </div>
                     ))}
                 </div>
@@ -91,7 +111,6 @@ const user = {
 
   margin: "0px",
   padding: "0px",
-
   textOverflow: "ellipsis",
   overflow: "hidden",
   whiteSpace: "nowrap",
